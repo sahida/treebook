@@ -11,3 +11,9 @@
  *= require_self
  *= require_tree .
  */
+
+/*Normal styling you want to add to your site goes here!*/
+
+body {
+	padding-top: 50px;
+}
