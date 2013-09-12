@@ -11,6 +11,19 @@ class User < ActiveRecord::Base
   #The opposite of belongs_to. This says that a User has many statuses. This links multiple statuses to a user.
   has_many :statuses
 
+  #Rails validation that makes sure that the users first_name is ENTERED when a User object is created/saved!
+  #Other VALIDATIONS online in rails documentation.
+  validates :first_name, presence: true
+  validates :last_name, presence: true
+  validates :profile_name, presence: true,
+                           uniqueness: true,
+                           format: {
+                            #Makes sure profile names contain every char except white space
+                            with: /\A[a-zA-Z\-\_]+\Z/,
+                            #If has white space, this failure messsage is specified.
+                            message: "Must be formatted correctly."
+                            }
+
   def full_name
   	first_name + " " + last_name
   end
