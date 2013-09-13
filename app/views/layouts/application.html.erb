@@ -28,8 +28,14 @@
 		</div>
 	</div>
 	<div class="container">
-		<p class="notice"><%= notice %></p>
-       	<p class="alert"><%= alert %></p>
+		<!-- Checks for an alert. Note: "" or 0 === false -->
+		<% flash.each do |type, message| %>
+			<div class="alert alert-dismissable <%= flash_class type %>">
+  				<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+  				<!-- erb here displays the flash notice messages -->
+  				<%= message %>
+			</div>
+		<% end %>
 		<%= yield %>
 	</div>
 </body>
