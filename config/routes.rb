@@ -2,8 +2,19 @@ Treebook::Application.routes.draw do
   devise_for :views
 
   devise_for :users
-
+  # Creates a new route rule in the user model scope! Old one is not DELETED!
+  devise_scope :user do
+    # Any time we recieve a GET request to /register in our link, it is pointed TO the area (hashtag format in rake routes).
+    # as: :register allows you to create a named route accessable in variables and in rake routes it will have a name like (edit_user_registration)
+    get 'register', to: 'devise/registrations#new', as: :register
+    get 'login', to: 'devise/sessions#new', as: :login
+    get 'logout', to: 'devise/sessions#destroy', as: :logout
+  end
+  # Go to rake routes to see what routes are created by the following line. /statuses routes.
   resources :statuses
+  # These routes are not in the devise scope so we dont need to define it there. Devise scope is users/etc. admins/etc.
+  # Modifying generic routes! Not the routes provided by devise above!
+  get 'feed', to: 'statuses#index', as: :feed
   root to: 'statuses#index'
 
   # The priority is based upon order of creation:

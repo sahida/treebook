@@ -13,15 +13,17 @@
 				<a href="#" class="navbar-brand">Treebook</a>
 				<ul class="nav navbar-nav navbar-left">
 					<!-- This is included here becuase this link is in the header which is always present! -->
-      				<li><%= link_to "All Statuses", statuses_path %></li> 
+      				<li><%= link_to "All Statuses", feed_path %></li> 
       			</ul>
       			<ul class="nav navbar-nav navbar-right">
       				<% if user_signed_in? %>
+      					<!-- Note, you can replace new_user_registration_path with register_path since we gave it an as: :register. Same with other paths! -->
 	      				<li><%= link_to current_user.full_name, edit_user_registration_path %></li>
-	      				<li><%= link_to "Log Out", destroy_user_session_path, method: :delete %></li>
+	      				<!-- Note: we had to delete the ", method: :delete %>" argument when chagning from the original path -->
+	      				<li><%= link_to "Log Out", logout_path %></li>
       				<% else %>
-      					<li><%= link_to "Register", new_user_registration_path %></li>
-      					<li><%= link_to "Login ", new_user_session_path %></li>
+      					<li><%= link_to "Register", register_path %></li>
+      					<li><%= link_to "Login ", login_path %></li>
       				<% end %>
       			</ul>
 			</div>
