@@ -6,9 +6,11 @@ Treebook::Application.routes.draw do
   devise_scope :user do
     # Any time we recieve a GET request to /register in our link, it is pointed TO the area (hashtag format in rake routes).
     # as: :register allows you to create a named route accessable in variables and in rake routes it will have a name like (edit_user_registration)
+    # Optionally you can include the / in the get string
     get 'register', to: 'devise/registrations#new', as: :register
     get 'login', to: 'devise/sessions#new', as: :login
     get 'logout', to: 'devise/sessions#destroy', as: :logout
+    get 'edit', to: 'devise/registrations#edit', as: :edit
   end
   # Go to rake routes to see what routes are created by the following line. /statuses routes.
   resources :statuses

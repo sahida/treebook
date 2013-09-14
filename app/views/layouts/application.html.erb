@@ -18,7 +18,7 @@
       			<ul class="nav navbar-nav navbar-right">
       				<% if user_signed_in? %>
       					<!-- Note, you can replace new_user_registration_path with register_path since we gave it an as: :register. Same with other paths! -->
-	      				<li><%= link_to current_user.full_name, edit_user_registration_path %></li>
+	      				<li><%= link_to current_user.full_name, edit_path %></li>
 	      				<!-- Note: we had to delete the ", method: :delete %>" argument when chagning from the original path -->
 	      				<li><%= link_to "Log Out", logout_path %></li>
       				<% else %>
