@@ -1,7 +1,11 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+# Change our status fixture to make sure that statuses know that they have a fixure. 
+# We say dj, becuase we added a dj model in our users.yml
 
 one:
   content: MyText
+  user: dj
 
 two:
   content: MyText
+  user: dj
