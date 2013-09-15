@@ -13,13 +13,14 @@ class User < ActiveRecord::Base
 
   #Rails validation that makes sure that the users first_name is ENTERED when a User object is created/saved!
   #Other VALIDATIONS online in rails documentation.
+  # /\A[a-zA-Z\-\_]+\Z/,
   validates :first_name, presence: true
   validates :last_name, presence: true
   validates :profile_name, presence: true,
                            uniqueness: true,
                            format: {
                             #Makes sure profile names contain every char except white space
-                            with: /\A[a-zA-Z\-\_]+\Z/,
+                            with: /^[a-zA-Z0-9_-]+$/,
                             #If has white space, this failure messsage is specified.
                             message: "Must be formatted correctly."
                             }

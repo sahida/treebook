@@ -24,6 +24,7 @@ class StatusTest < ActiveSupport::TestCase
   # For example, we can edit our code or use validations to mediate this error.
   test "that a status's content is at least 2 letters" do
   	status = Status.new
+    # If we already added the empty validation, we HAVE TO HAVE CONTENT HERE OR WE WILL ERROR!
   	status.content = "H"
   	assert !status.save
   	# Asserts that we will have an error on our content field. i.e makes the test fail! 

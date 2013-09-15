@@ -5,23 +5,23 @@ class CustomRoutesTest < ActionDispatch::IntegrationTest
   test "that /login route opens the login page" do
   	# Custom path you want to go to.
   	get "/login"
-  	# Makes sure that this request is successful.
+  	# Asserts that this request should be successful. If not, there is an error in custom routes.
   	assert_response :success 
   end
 
   test "that /logout route opens the logout page" do
   	# Custom path you want to go to.
   	get "/logout"
-  	# Logout is a redirect, not a request to a page. So we must indicate this.
+  	# Asserts that this response is a redirect.
   	assert_response :redirect
-  	# / indicates index
+  	# Asserts that this is the page redirected to. If not, there is an error in custom routes.
   	assert_redirected_to "/"
   end
 
   test "that /register route opens the register page" do
   	# Custom path you want to go to.
   	get "/register"
-  	# Makes sure that this request is successful.
+  	# Asserts that this request should be successful. If not, there is an error in custom routes.
   	assert_response :success 
   end
 
