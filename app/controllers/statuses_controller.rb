@@ -2,7 +2,7 @@ class StatusesController < ApplicationController
   # Before filters will run before anything else in the controller. :authenticate_user! devise helper?
   # Add this to authenticate a user before they can make a post.
   # only: on the new method defined below. For new statuses, users must be logged in!
-  before_filter :authenticate_user!, only: [:new] 
+  before_filter :authenticate_user!, only: [:new, :create, :edit, :update] 
   # GET /statuses
   # GET /statuses.json
   def index
