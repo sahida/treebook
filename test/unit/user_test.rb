@@ -10,6 +10,8 @@ class UserTest < ActiveSupport::TestCase
   	# Asserts that our test user should not be saved. If test fails here, user was saved and we must edit our code.
   	assert !user.save
   	# Asserts that there is an error in the first name of our test user.
+    # Before the validation, the error arrary IS empty and this evals to false. 
+    # After the validation, the error arry ISNT empty due to the validation and evals to true.
   	assert !user.errors[:first_name].empty?
   end
 
@@ -60,8 +62,9 @@ class UserTest < ActiveSupport::TestCase
     user = User.new(first_name: "Damanjeet", last_name: "Sahi", email: "sahida@umich.edu")
     user.password = user.password_confirmation = "asdaksjd"
     user.profile_name = "sahida_1"
-    # Will fail before we fix the format, and pass after.
+    # Will assert that the test user is valid.
     assert user.valid?
+    # Will fail before we fix the format, and pass after.
   end
 
 end
