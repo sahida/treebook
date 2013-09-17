@@ -3,3 +3,9 @@ dj:
  last_name: "Sahi"
  email: "dsahi1991@gmail.com"
  profile_name: "sahida"
+ # Must add another user for the status match user test to fail before we add the code.
+navi:
+ first_name: "Navi"
+ last_name: "Sahi"
+ email: "navisahi@gmail.com"
+ profile_name: "sahina"

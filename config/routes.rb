@@ -21,6 +21,9 @@ Treebook::Application.routes.draw do
   get 'feed', to: 'statuses#index', as: :feed
   root to: 'statuses#index'
 
+  # Used to point to the profile pages of a user!
+  get "/:id", to: "profiles#show"
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
